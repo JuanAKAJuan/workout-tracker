@@ -1,9 +1,9 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Index() {
+export default function Settings() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Settings</Text>
     </View>
   );
 }
