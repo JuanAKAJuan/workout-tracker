@@ -1,15 +1,28 @@
 import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Ionicons } from "@expo/vector-icons";
+import { useTheme } from "../context/ThemeContext";
+import Colors from "../../constants/Colors";
 
 export default function TabLayout() {
+  const { isDark } = useTheme();
+  const colors = isDark ? Colors.dark : Colors.light;
+
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: colors.tint,
+        tabBarStyle: { backgroundColor: colors.background },
+        tabBarInactiveTintColor: colors.tabIconDefault,
+        headerStyle: { backgroundColor: colors.background },
+        headerTintColor: colors.text,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="home" color={color} />
           ),
         }}
       />
@@ -17,8 +30,8 @@ export default function TabLayout() {
         name="mesocycles"
         options={{
           title: "Mesocycles",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="bars" color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="barbell" color={color} />
           ),
         }}
       />
@@ -26,8 +39,8 @@ export default function TabLayout() {
         name="history"
         options={{
           title: "History",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="history" color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="time-outline" color={color} />
           ),
         }}
       />
@@ -35,8 +48,8 @@ export default function TabLayout() {
         name="stats"
         options={{
           title: "Stats",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="bar-chart" color={color} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="bar-chart" color={color} />
           ),
         }}
       />
