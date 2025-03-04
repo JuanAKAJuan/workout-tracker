@@ -11,9 +11,11 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
+export default function ThemeProvider({
   children,
-}) => {
+}: {
+  children: React.ReactNode;
+}) {
   const systemColorScheme = useColorScheme();
   const [theme, setTheme] = useState<ThemeType>("system");
 
@@ -31,7 +33,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);

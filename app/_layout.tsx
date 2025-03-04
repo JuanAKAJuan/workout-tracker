@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import ThemeProvider, { useTheme } from "./context/ThemeContext";
 import Colors from "../constants/Colors";
 
 function RootLayoutNav() {
