@@ -31,6 +31,15 @@ export default function TabLayout() {
         options={{
           title: "Mesocycles",
           tabBarIcon: ({ color, size }) => (
+            <Ionicons size={size} name="layers" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="exercises"
+        options={{
+          title: "Exercises",
+          tabBarIcon: ({ color, size }) => (
             <Ionicons size={size} name="barbell" color={color} />
           ),
         }}
